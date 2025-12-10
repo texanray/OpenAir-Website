@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAir IoT | Industrial IoT Solutions - Your Things. Your Bottom Line.</title>
+    <meta name="description" content="Industrial IoT connectivity without vendor lock-in. Connect your existing equipment to the cloud with satellite, cellular, or hybrid networks. Veteran owned. 16+ years experience.">
+    <meta name="keywords" content="Industrial IoT, SCADA, remote monitoring, satellite connectivity, oil and gas IoT, industrial automation, sensor integration">
+    <meta name="author" content="OpenAir Solutions, LLC">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://openairiot.com/">
+    <meta property="og:title" content="OpenAir IoT | Industrial IoT Solutions">
+    <meta property="og:description" content="Industrial IoT connectivity without vendor lock-in. Your Things. Your Bottom Line.">
+    <meta property="og:image" content="https://openairiot.com/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'openair': {
+                            'green': '#5B8C32',
+                            'green-light': '#7CB342',
+                            'green-dark': '#3D5E21',
+                            'black': '#1A1A1A',
+                            'gray': '#2D2D2D',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['IBM Plex Sans', 'sans-serif'],
+                        'mono': ['IBM Plex Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 50%, #1A1A1A 100%);
+        }
+        .grid-overlay {
+            background-image: 
+                linear-gradient(rgba(91, 140, 50, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(91, 140, 50, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #7CB342 0%, #5B8C32 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Ensure logo looks good on dark background */
+        .logo-container {
+            background: rgba(255,255,255,0.95);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-openair-black text-white font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-openair-black/95 backdrop-blur-sm border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="logo-container">
+                    <img src="/logo.png" alt="OpenAir IoT - Your Things. Your Bottom Line." class="h-10 md:h-12">
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#services" class="text-gray-400 hover:text-white transition-colors text-sm font-medium">Services</a>
+                    <a href="#approach" class="text-gray-400 hover:text-white transition-colors text-sm font-medium">Our Approach</a>
+                    <a href="#about" class="text-gray-400 hover:text-white transition-colors text-sm font-medium">About</a>
+                    <a href="#contact" class="bg-openair-green hover:bg-openair-green-light text-white px-5 py-2.5 text-sm font-semibold transition-colors">
+                        Contact Us
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <button class="md:hidden text-white" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" aria-label="Toggle menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2">
+                <a href="#services" class="block py-2 text-gray-400 hover:text-white" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Services</a>
+                <a href="#approach" class="block py-2 text-gray-400 hover:text-white" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Our Approach</a>
+                <a href="#about" class="block py-2 text-gray-400 hover:text-white" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a>
+                <a href="#contact" class="block py-2 text-openair-green-light" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient grid-overlay min-h-screen flex items-center pt-20">
+        <div class="max-w-6xl mx-auto px-6 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <p class="font-mono text-openair-green-light text-sm tracking-wider mb-4 uppercase">Industrial IoT Solutions</p>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        Your Things.<br>
+                        <span class="text-gradient">Your Bottom Line.</span>
+                    </h1>
+                    <p class="text-xl text-gray-400 leading-relaxed mb-8 max-w-xl">
+                        Connect your existing equipment to the cloud without vendor lock-in. 
+                        We integrate with your hardware — satellite, cellular, or hybrid — so you stay in control.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="bg-openair-green hover:bg-openair-green-light text-white px-8 py-4 text-center font-semibold transition-colors">
+                            Get a Free Consultation
+                        </a>
+                        <a href="#services" class="border border-white/20 hover:border-white/40 text-white px-8 py-4 text-center font-semibold transition-colors">
+                            See How It Works
+                        </a>
+                    </div>
+                </div>
+                <div class="fade-in hidden lg:block">
+                    <!-- Status Dashboard Visualization -->
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-openair-green/10 rounded-lg transform rotate-3"></div>
+                        <div class="relative bg-openair-gray border border-white/10 rounded-lg p-8">
+                            <div class="grid grid-cols-3 gap-4 mb-6">
+                                <div class="bg-openair-black/50 rounded p-4 text-center">
+                                    <p class="font-mono text-openair-green-light text-2xl font-bold">24/7</p>
+                                    <p class="text-xs text-gray-500 mt-1">Monitoring</p>
+                                </div>
+                                <div class="bg-openair-black/50 rounded p-4 text-center">
+                                    <p class="font-mono text-openair-green-light text-2xl font-bold">99.9%</p>
+                                    <p class="text-xs text-gray-500 mt-1">Uptime</p>
+                                </div>
+                                <div class="bg-openair-black/50 rounded p-4 text-center">
+                                    <p class="font-mono text-openair-green-light text-2xl font-bold">16+</p>
+                                    <p class="text-xs text-gray-500 mt-1">Years Exp.</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 bg-openair-green rounded-full animate-pulse"></div>
+                                    <span class="text-sm text-gray-400">Satellite Connection Active</span>
+                                    <span class="ml-auto font-mono text-xs text-openair-green-light">ONLINE</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 bg-openair-green rounded-full animate-pulse"></div>
+                                    <span class="text-sm text-gray-400">LTE Backup Ready</span>
+                                    <span class="ml-auto font-mono text-xs text-openair-green-light">STANDBY</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 bg-openair-green rounded-full animate-pulse"></div>
+                                    <span class="text-sm text-gray-400">Data Sync</span>
+                                    <span class="ml-auto font-mono text-xs text-gray-500">2.4 KB/s</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem/Solution Section -->
+    <section class="bg-openair-gray border-y border-white/5 py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="fade-in">
+                    <p class="font-mono text-red-400/80 text-sm tracking-wider mb-4 uppercase">The Problem</p>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">Locked into expensive ecosystems?</h2>
+                    <p class="text-gray-400 leading-relaxed">
+                        Most IoT providers force you to buy their proprietary hardware, their sensors, their gateways — locking you into their system forever. 
+                        When you want to scale or switch, you're stuck. And the costs keep climbing.
+                    </p>
+                </div>
+                <div class="fade-in">
+                    <p class="font-mono text-openair-green-light text-sm tracking-wider mb-4 uppercase">Our Solution</p>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">Your hardware. Our connectivity.</h2>
+                    <p class="text-gray-400 leading-relaxed">
+                        We don't sell you equipment — we connect what you already have. Buy off-the-shelf sensors. 
+                        Use your existing infrastructure. We handle the data layer: collection, transmission, storage, and visualization. 
+                        You stay in control.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-openair-black scroll-mt-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <p class="font-mono text-openair-green-light text-sm tracking-wider mb-4 uppercase">What We Do</p>
+                <h2 class="text-3xl md:text-4xl font-bold">End-to-End Industrial Connectivity</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="card-hover bg-openair-gray border border-white/5 p-8 fade-in">
+                    <div class="w-12 h-12 bg-openair-green/10 flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-openair-green-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Sensor Integration</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Connect any sensor to your network. We help you choose cost-effective, off-the-shelf options or integrate existing equipment — no proprietary hardware required.
+                    </p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="card-hover bg-openair-gray border border-white/5 p-8 fade-in">
+                    <div class="w-12 h-12 bg-openair-green/10 flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-openair-green-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Multi-Network Connectivity</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Satellite, LTE, cellular, WiFi — or hybrid failover. One contract, one network, global coverage. Your data gets through, no matter how remote.
+                    </p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="card-hover bg-openair-gray border border-white/5 p-8 fade-in">
+                    <div class="w-12 h-12 bg-openair-green/10 flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-openair-green-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Data & Analytics</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Custom dashboards built for your operation. Real-time monitoring, alerts, reports, and KPIs — all accessible anywhere. Your data, visualized your way.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="py-24 bg-openair-gray border-y border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <p class="font-mono text-openair-green-light text-sm tracking-wider mb-4 uppercase">Industries</p>
+                <h2 class="text-3xl md:text-4xl font-bold">Built for Remote & Harsh Environments</h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
+                    16+ years of experience solving connectivity challenges where others can't — from West Texas wellsites to remote agricultural operations.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-openair-black/50 border border-white/5 p-6 text-center card-hover fade-in">
+                    <p class="font-semibold">Oil & Gas</p>
+                    <p class="text-xs text-gray-500 mt-1">Production & Pipelines</p>
+                </div>
+                <div class="bg-openair-black/50 border border-white/5 p-6 text-center card-hover fade-in">
+                    <p class="font-semibold">Agriculture</p>
+                    <p class="text-xs text-gray-500 mt-1">Irrigation & Monitoring</p>
+                </div>
+                <div class="bg-openair-black/50 border border-white/5 p-6 text-center card-hover fade-in">
+                    <p class="font-semibold">Water & Utilities</p>
+                    <p class="text-xs text-gray-500 mt-1">SCADA & Remote Assets</p>
+                </div>
+                <div class="bg-openair-black/50 border border-white/5 p-6 text-center card-hover fade-in">
+                    <p class="font-semibold">Renewables</p>
+                    <p class="text-xs text-gray-500 mt-1">Solar & Wind Farms</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section id="approach" class="py-24 bg-openair-black scroll-mt-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <p class="font-mono text-openair-green-light text-sm tracking-wider mb-4 uppercase">Our Approach</p>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">You're the Project Manager</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        We're not here to sell you a black box. We guide you through options — from off-the-shelf devices you source yourself to full turnkey deployments — and let you decide what fits your budget and operations.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed mb-8">
+                        Free consultation. No pressure. Even if that means telling you we're not the right fit.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-6 h-6 bg-openair-green/20 flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-openair-green-light" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <p class="text-gray-300">No vendor lock-in — use any compatible hardware</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-6 h-6 bg-openair-green/20 flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-openair-green-light" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <p class="text-gray-300">Transparent pricing — no hidden costs</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-6 h-6 bg-openair-green/20 flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-openair-green-light" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <p class="text-gray-300">Scale at your pace — start small, grow when ready</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <div class="bg-openair-gray border border-white/10 p-8">
+                        <p class="font-mono text-openair-green-light text-sm mb-4">// How it works</p>
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <div class="w-8 h-8 bg-openair-green text-white flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
+                                <div>
+                                    <p class="font-semibold mb-1">Consultation</p>
+                                    <p class="text-sm text-gray-400">We discuss your needs, existing equipment, and goals. Free, no obligation.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-8 h-8 bg-openair-green text-white flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
+                                <div>
+                                    <p class="font-semibold mb-1">Design</p>
+                                    <p class="text-sm text-gray-400">We map your connectivity options — you choose the hardware path and budget.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-8 h-8 bg-openair-green text-white flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
+                                <div>
+                                    <p class="font-semibold mb-1">Deploy</p>
+                                    <p class="text-sm text-gray-400">Integration, testing, and go-live. Your custom dashboard is ready.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-8 h-8 bg-openair-green text-white flex items-center justify-center font-bold text-sm flex-shrink-0">4</div>
+                                <div>
+                                    <p class="font-semibold mb-1">Support</p>
+                                    <p class="text-sm text-gray-400">24/7 monitoring, alerts, and ongoing optimization as you scale.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-openair-gray border-y border-white/5 scroll-mt-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <p class="font-mono text-openair-green-light text-sm tracking-wider mb-4 uppercase">About OpenAir Solutions</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">16+ Years Connecting Remote Operations</h2>
+            <p class="text-gray-400 leading-relaxed mb-8 text-lg fade-in">
+                OpenAir Solutions was founded in 2018 after years of working in industrial communications — from microwave to satellite. 
+                We saw an industry full of providers locking customers into expensive, proprietary systems. We built something different: 
+                a service that adapts to your equipment, not the other way around.
+            </p>
+            <div class="inline-flex items-center gap-3 bg-openair-black/50 border border-white/10 px-6 py-3 fade-in">
+                <svg class="w-6 h-6 text-openair-green-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/>
+                </svg>
+                <span class="font-semibold">Veteran Owned & Operated</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-openair-black scroll-mt-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12 fade-in">
+                <p class="font-mono text-openair-green-light text-sm tracking-wider mb-4 uppercase">Get Started</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Let's Talk About Your Operation</h2>
+                <p class="text-gray-400">Free consultation. No pressure. We'll help you figure out if we're the right fit.</p>
+            </div>
+            
+            <div class="bg-openair-gray border border-white/10 p-8 md:p-12 fade-in">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-6">Contact Us</h3>
+                        <div class="space-y-4">
+                            <a href="mailto:support@OpenAirIoT.com" class="flex items-center gap-4 text-gray-400 hover:text-white transition-colors group">
+                                <div class="w-10 h-10 bg-openair-green/10 flex items-center justify-center group-hover:bg-openair-green/20 transition-colors">
+                                    <svg class="w-5 h-5 text-openair-green-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                    </svg>
+                                </div>
+                                <span>support@OpenAirIoT.com</span>
+                            </a>
+                            <a href="tel:+14802316867" class="flex items-center gap-4 text-gray-400 hover:text-white transition-colors group">
+                                <div class="w-10 h-10 bg-openair-green/10 flex items-center justify-center group-hover:bg-openair-green/20 transition-colors">
+                                    <svg class="w-5 h-5 text-openair-green-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                    </svg>
+                                </div>
+                                <span>(480) 231-6867</span>
+                            </a>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-white/10">
+                            <p class="text-sm text-gray-500">Based in Texas. Serving clients nationwide.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-6">Quick Inquiry</h3>
+                        <p class="text-gray-400 text-sm mb-6">
+                            Drop us a line and we'll get back to you within 24 hours.
+                        </p>
+                        <a href="mailto:support@OpenAirIoT.com?subject=OpenAir%20IoT%20Inquiry&body=Hi%2C%0A%0AI'm%20interested%20in%20learning%20more%20about%20OpenAir%20IoT%20solutions.%0A%0AMy%20industry%3A%20%0AMy%20needs%3A%20%0A%0APlease%20contact%20me%20to%20schedule%20a%20consultation.%0A%0AThanks!" 
+                           class="block w-full bg-openair-green hover:bg-openair-green-light text-white text-center px-8 py-4 font-semibold transition-colors">
+                            Send an Email →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-openair-black border-t border-white/5 py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="logo-container">
+                    <img src="/logo.png" alt="OpenAir IoT" class="h-8">
+                </div>
+                <p class="text-gray-500 text-sm">
+                    © 2025 OpenAir Solutions, LLC. All rights reserved.
+                </p>
+                <div class="flex gap-6">
+                    <a href="mailto:support@OpenAirIoT.com" class="text-gray-500 hover:text-white text-sm transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        // Fade in elements on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Handle hash links on page load (for /contact redirect)
+        if (window.location.hash) {
+            setTimeout(() => {
+                const target = document.querySelector(window.location.hash);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+    </script>
+
+</body>
+</html>
