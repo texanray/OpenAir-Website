@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Saver Timer Relay | OpenAir Solutions</title>
+    <meta name="description" content="The Battery Saver Timer Relay protects your batteries and preserves critical alarms. The only timer designed specifically for RTU battery protection. $114.99 - Free shipping on orders over $500.">
+    <meta name="keywords" content="battery saver, timer relay, RTU battery protection, satellite modem power, oil and gas battery, industrial timer, DIN rail timer">
+    <meta name="author" content="OpenAir Solutions, LLC">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://openairiot.com/shop">
+    <meta property="og:title" content="Battery Saver Timer Relay | OpenAir Solutions">
+    <meta property="og:description" content="Stop killing your batteries. Start getting alerts. The only timer relay designed to protect batteries AND preserve critical alarms.">
+    <meta property="og:image" content="https://openairiot.com/images/battery-saver-og.jpg">
+    <meta property="product:price:amount" content="114.99">
+    <meta property="product:price:currency" content="USD">
+    
+    <!-- Product Schema for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Battery Saver Timer Relay",
+        "description": "The only timer relay designed specifically to protect RTU batteries and preserve critical shutdown alarms. Keeps your satellite/modem powered for up to 150 minutes after equipment shutdown.",
+        "sku": "BSTR-01",
+        "brand": {
+            "@type": "Brand",
+            "name": "OpenAir Solutions"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://openairiot.com/shop",
+            "priceCurrency": "USD",
+            "price": "114.99",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@type": "Organization",
+                "name": "OpenAir Solutions, LLC"
+            }
+        }
+    }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --openair-green: #2D5A27;
+            --openair-green-light: #4A7C43;
+            --openair-dark: #0a0a0a;
+            --openair-gray: #1a1a1a;
+        }
+        
+        * { font-family: 'Space Grotesk', system-ui, sans-serif; }
+        html { scroll-behavior: smooth; }
+        
+        .bg-openair-dark { background-color: var(--openair-dark); }
+        .bg-openair-gray { background-color: var(--openair-gray); }
+        .bg-openair-green { background-color: var(--openair-green); }
+        .text-openair-green { color: var(--openair-green); }
+        .text-openair-green-light { color: var(--openair-green-light); }
+        .border-openair-green { border-color: var(--openair-green); }
+        
+        .hover-glow:hover {
+            box-shadow: 0 0 30px rgba(45, 90, 39, 0.3);
+        }
+        
+        .qty-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--openair-gray);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .qty-btn:hover {
+            background: var(--openair-green);
+            border-color: var(--openair-green);
+        }
+        .qty-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .shipping-option {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .shipping-option:hover {
+            border-color: var(--openair-green-light);
+        }
+        .shipping-option.selected {
+            border-color: var(--openair-green);
+            background: rgba(45, 90, 39, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-openair-dark text-white">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-openair-dark/95 backdrop-blur-sm border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="logo-container">
+                    <img src="/logo.png" alt="OpenAir IoT" class="h-14 md:h-16 lg:h-20">
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="/#services" class="text-gray-300 hover:text-white transition-colors">Services</a>
+                    <a href="/#approach" class="text-gray-300 hover:text-white transition-colors">Our Approach</a>
+                    <a href="/#about" class="text-gray-300 hover:text-white transition-colors">About</a>
+                    <a href="/shop" class="text-openair-green-light font-medium">Shop</a>
+                    <a href="/#contact" class="bg-openair-green hover:bg-openair-green-light px-4 py-2 transition-colors">Contact Us</a>
+                </div>
+                <button class="md:hidden text-white" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-white/10 pt-4">
+                <div class="flex flex-col gap-4">
+                    <a href="/#services" class="text-gray-300 hover:text-white">Services</a>
+                    <a href="/#approach" class="text-gray-300 hover:text-white">Our Approach</a>
+                    <a href="/#about" class="text-gray-300 hover:text-white">About</a>
+                    <a href="/shop" class="text-openair-green-light font-medium">Shop</a>
+                    <a href="/#contact" class="bg-openair-green hover:bg-openair-green-light px-4 py-2 text-center">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Section -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Breadcrumb -->
+            <nav class="mb-8 text-sm">
+                <a href="/" class="text-gray-500 hover:text-white">Home</a>
+                <span class="text-gray-600 mx-2">/</span>
+                <span class="text-openair-green-light">Shop</span>
+            </nav>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                
+                <!-- Product Images -->
+                <div>
+                    <div class="bg-openair-gray border border-white/10 p-8 mb-4">
+                        <img src="/images/battery-saver-top.png" alt="Battery Saver Timer Relay - Top View" class="w-full max-w-md mx-auto" id="mainImage">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <button onclick="document.getElementById('mainImage').src='/images/battery-saver-top.png'" class="bg-openair-gray border border-white/10 p-4 hover:border-openair-green/50 transition-colors">
+                            <img src="/images/battery-saver-top.png" alt="Top View" class="w-full">
+                        </button>
+                        <button onclick="document.getElementById('mainImage').src='/images/battery-saver-front.jpg'" class="bg-openair-gray border border-white/10 p-4 hover:border-openair-green/50 transition-colors">
+                            <img src="/images/battery-saver-front.jpg" alt="Front View" class="w-full">
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product Info -->
+                <div>
+                    <p class="text-openair-green-light font-mono text-sm mb-2">PN: BSTR-01</p>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4">Battery Saver Timer Relay</h1>
+                    
+                    <p class="text-2xl font-bold text-openair-green-light mb-6">$114.99</p>
+                    
+                    <p class="text-gray-400 mb-6 text-lg italic">
+                        "Stop Killing Your Batteries. Start Getting Alerts."
+                    </p>
+                    
+                    <div class="border-t border-b border-white/10 py-6 mb-6">
+                        <h3 class="font-semibold mb-4">The Impossible Choice (Until Now)</h3>
+                        <p class="text-gray-400 mb-4">
+                            When equipment shuts down, you've always had two bad options: leave power ON and risk a dead battery, 
+                            or cut power and lose your shutdown alarm. <strong class="text-white">The Battery Saver solves both.</strong>
+                        </p>
+                        <p class="text-gray-400">
+                            It keeps your RTU powered for up to <strong class="text-white">150 minutes</strong> after shutdown — 
+                            plenty of time to send that critical alarm — then cuts power before your battery drains to unrecoverable levels.
+                        </p>
+                    </div>
+                    
+                    <!-- Features -->
+                    <div class="mb-8">
+                        <h3 class="font-semibold mb-4">Features</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-start gap-2">
+                                <span class="text-openair-green-light">✓</span>
+                                <span><strong>Protects Batteries</strong> — Cuts power before unrecoverable drain</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-openair-green-light">✓</span>
+                                <span><strong>Preserves Alarms</strong> — RTU stays alive up to 150 min</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-openair-green-light">✓</span>
+                                <span><strong>Self-Resetting</strong> — Equipment restarts? Timer resets automatically</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-openair-green-light">✓</span>
+                                <span><strong>DIN Rail Mount</strong> — Clean install, bracket included</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-openair-green-light">✓</span>
+                                <span><strong>12/24 VDC</strong> — Works with existing systems</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Order Form -->
+                    <div class="bg-openair-gray border border-white/10 p-6">
+                        <h3 class="font-semibold mb-4">Order</h3>
+                        
+                        <!-- Quantity -->
+                        <div class="mb-6">
+                            <label class="block text-sm text-gray-400 mb-2">Quantity</label>
+                            <div class="flex items-center gap-4">
+                                <button class="qty-btn" onclick="updateQty(-1)" id="qtyMinus">−</button>
+                                <input type="number" id="quantity" value="1" min="1" max="99" 
+                                       class="w-20 bg-transparent border border-white/20 text-center py-2 text-lg"
+                                       onchange="updateFromInput()">
+                                <button class="qty-btn" onclick="updateQty(1)">+</button>
+                            </div>
+                            <p id="bulkNote" class="text-sm text-gray-500 mt-2 hidden"></p>
+                        </div>
+                        
+                        <!-- Shipping -->
+                        <div class="mb-6">
+                            <label class="block text-sm text-gray-400 mb-2">Shipping</label>
+                            <div id="shippingOptions" class="space-y-2">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                        
+                        <!-- Totals -->
+                        <div class="border-t border-white/10 pt-4 mb-6">
+                            <div class="flex justify-between text-gray-400 mb-2">
+                                <span>Subtotal (<span id="subtotalQty">1</span> unit<span id="subtotalPlural"></span>)</span>
+                                <span>$<span id="subtotal">114.99</span></span>
+                            </div>
+                            <div class="flex justify-between text-gray-400 mb-2">
+                                <span>Shipping</span>
+                                <span id="shippingDisplay">$15.00</span>
+                            </div>
+                            <div class="flex justify-between text-xl font-bold mt-4">
+                                <span>Total</span>
+                                <span>$<span id="total">129.99</span></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Checkout Button -->
+                        <button id="checkoutBtn" onclick="checkout()" 
+                                class="w-full bg-openair-green hover:bg-openair-green-light py-4 font-semibold text-lg transition-colors hover-glow">
+                            Proceed to Checkout
+                        </button>
+                        
+                        <!-- Bulk Order Notice -->
+                        <div id="bulkOrderNotice" class="hidden mt-4 p-4 bg-yellow-900/20 border border-yellow-600/30 text-sm">
+                            <p class="text-yellow-200"><strong>Bulk Order (100+ units)</strong></p>
+                            <p class="text-yellow-200/80 mt-1">Orders of 100+ units require 6-8 weeks lead time. Please <a href="/#contact" class="underline">contact us</a> for bulk pricing and shipping arrangements.</p>
+                        </div>
+                        
+                        <p class="text-xs text-gray-500 mt-4 text-center">
+                            Secure checkout powered by Stripe. We never store your card details.
+                        </p>
+                    </div>
+                    
+                    <p class="text-sm text-gray-500 mt-4 text-center italic">
+                        Custom timing configurations available by request. <a href="/#contact" class="text-openair-green-light hover:underline">Contact us</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Value Proposition -->
+    <section class="py-16 px-6 bg-openair-gray">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="bg-openair-green p-8 mb-8">
+                <p class="text-xl md:text-2xl font-semibold">
+                    Costs ~30% less than a replacement battery — and actually <em>prevents</em> the next one from dying.
+                </p>
+            </div>
+            <h2 class="text-2xl font-bold mb-4">The Math Is Easy</h2>
+            <p class="text-gray-400 text-lg">
+                One ruined battery = $150-250 (lucky to get $30 on the core). One Battery Saver = $114.99.<br>
+                Multiply by your fleet size. Multiply by how often this happens. <em>You're welcome.</em>
+            </p>
+        </div>
+    </section>
+    
+    <!-- Cross-sell -->
+    <section class="py-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="border border-openair-green/30 bg-openair-green/5 p-6 text-center">
+                <p class="text-openair-green-light mb-2">Need complete remote monitoring?</p>
+                <p class="text-gray-300">
+                    Custom SCADA dashboards, alarming systems & IoT integration — that's exactly what we do.
+                    <a href="/#services" class="text-openair-green-light font-semibold hover:underline ml-1">Learn more →</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-white/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <img src="/logo.png" alt="OpenAir IoT" class="h-10">
+                <p class="text-gray-500 text-sm">© 2025 OpenAir Solutions, LLC. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="/shop" class="text-gray-500 hover:text-white text-sm">Shop</a>
+                    <a href="mailto:support@OpenAirIoT.com" class="text-gray-500 hover:text-white text-sm">Contact</a>
+                </div>
+            </div>
+            <p class="text-xs text-gray-600 text-center mt-4">
+                Installation must be performed by qualified personnel following NEC best practices.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // CONFIGURATION - UPDATE THESE WITH YOUR STRIPE INFO
+        // ============================================
+        const CONFIG = {
+            // Replace with your actual Stripe publishable key (starts with pk_live_ or pk_test_)
+            stripePublishableKey: 'pk_live_YOUR_KEY_HERE',
+            
+            // Replace with your actual Stripe Price IDs for each product/shipping combo
+            // You'll create these in Stripe Dashboard > Products
+            priceIds: {
+                product: 'price_XXXXX',  // Battery Saver $114.99
+                shipping15: 'price_XXXXX',  // $15 shipping
+                shipping25: 'price_XXXXX',  // $25 shipping
+                shipping50: 'price_XXXXX',  // $50 shipping
+            },
+            
+            unitPrice: 114.99,
+            
+            // Shipping tiers
+            shipping: [
+                { min: 1, max: 2, price: 15, label: 'Standard Shipping (1-2 units)' },
+                { min: 3, max: 5, price: 25, label: 'Standard Shipping (3-5 units)' },
+                { min: 6, max: 10, price: 50, label: 'Standard Shipping (6-10 units)' },
+                { min: 11, max: 99, price: 0, label: 'Free Shipping (11+ units)', free: true },
+            ]
+        };
+        
+        let selectedShipping = null;
+        
+        function updateQty(delta) {
+            const input = document.getElementById('quantity');
+            let val = parseInt(input.value) || 1;
+            val = Math.max(1, Math.min(99, val + delta));
+            input.value = val;
+            updateFromInput();
+        }
+        
+        function updateFromInput() {
+            const qty = parseInt(document.getElementById('quantity').value) || 1;
+            document.getElementById('quantity').value = Math.max(1, Math.min(99, qty));
+            
+            // Update shipping options based on quantity
+            updateShippingOptions(qty);
+            
+            // Update subtotal
+            const subtotal = (qty * CONFIG.unitPrice).toFixed(2);
+            document.getElementById('subtotal').textContent = subtotal;
+            document.getElementById('subtotalQty').textContent = qty;
+            document.getElementById('subtotalPlural').textContent = qty > 1 ? 's' : '';
+            
+            // Bulk order notice
+            const bulkNotice = document.getElementById('bulkOrderNotice');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            
+            if (qty >= 100) {
+                bulkNotice.classList.remove('hidden');
+                checkoutBtn.disabled = true;
+                checkoutBtn.textContent = 'Contact Us for Bulk Orders';
+                checkoutBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                checkoutBtn.onclick = () => window.location.href = '/#contact';
+            } else {
+                bulkNotice.classList.add('hidden');
+                checkoutBtn.disabled = false;
+                checkoutBtn.textContent = 'Proceed to Checkout';
+                checkoutBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                checkoutBtn.onclick = checkout;
+            }
+            
+            // Disable minus button at 1
+            document.getElementById('qtyMinus').disabled = qty <= 1;
+            
+            updateTotal();
+        }
+        
+        function updateShippingOptions(qty) {
+            const container = document.getElementById('shippingOptions');
+            container.innerHTML = '';
+            
+            // Find applicable shipping tier
+            const tier = CONFIG.shipping.find(s => qty >= s.min && qty <= s.max);
+            
+            if (tier) {
+                const div = document.createElement('div');
+                div.className = 'shipping-option selected border border-white/20 p-4';
+                div.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <span>${tier.label}</span>
+                        <span class="font-semibold">${tier.free ? 'FREE' : '$' + tier.price.toFixed(2)}</span>
+                    </div>
+                `;
+                container.appendChild(div);
+                selectedShipping = tier;
+            }
+            
+            updateTotal();
+        }
+        
+        function updateTotal() {
+            const qty = parseInt(document.getElementById('quantity').value) || 1;
+            const subtotal = qty * CONFIG.unitPrice;
+            const shippingCost = selectedShipping ? selectedShipping.price : 15;
+            const total = subtotal + shippingCost;
+            
+            document.getElementById('shippingDisplay').textContent = selectedShipping?.free ? 'FREE' : '$' + shippingCost.toFixed(2);
+            document.getElementById('total').textContent = total.toFixed(2);
+        }
+        
+        async function checkout() {
+            const qty = parseInt(document.getElementById('quantity').value) || 1;
+            
+            if (qty >= 100) {
+                window.location.href = '/#contact';
+                return;
+            }
+            
+            // For now, redirect to a Stripe Payment Link
+            // You'll create this in Stripe Dashboard and paste the URL here
+            // OR we can set up full Stripe Checkout with the API
+            
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            checkoutBtn.disabled = true;
+            checkoutBtn.textContent = 'Redirecting to Checkout...';
+            
+            // Option 1: Simple Payment Link (easiest)
+            // Replace this URL with your actual Stripe Payment Link
+            // You can create one in Stripe Dashboard > Payment Links
+            const paymentLinkBase = 'https://buy.stripe.com/YOUR_PAYMENT_LINK';
+            
+            // Add quantity as a URL parameter (Stripe Payment Links support this)
+            window.location.href = `${paymentLinkBase}?quantity=${qty}`;
+            
+            // Option 2: Full Stripe Checkout (more control, needs backend)
+            // Uncomment below and set up a serverless function if you want full control
+            /*
+            try {
+                const response = await fetch('/api/create-checkout-session', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ quantity: qty })
+                });
+                const { url } = await response.json();
+                window.location.href = url;
+            } catch (error) {
+                console.error('Checkout error:', error);
+                checkoutBtn.disabled = false;
+                checkoutBtn.textContent = 'Proceed to Checkout';
+                alert('There was an error. Please try again or contact us.');
+            }
+            */
+        }
+        
+        // Initialize
+        updateShippingOptions(1);
+        updateTotal();
+    </script>
+
+</body>
+</html>

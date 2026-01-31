@@ -1,55 +1,104 @@
-# OpenAir IoT Website
+# OpenAir IoT Website Update - Battery Saver Shop
 
-A modern, single-page website for OpenAir Solutions, LLC.
+This update adds a product page for the Battery Saver Timer Relay with Stripe checkout integration.
 
-## Deployment to Vercel
+## What's New
 
-### Option 1: Deploy via Vercel Dashboard (Easiest)
+1. **Shop Page** (`/shop`) - Product page for the Battery Saver
+2. **Navigation Update** - "Shop" link added to header
+3. **Stripe Integration** - Checkout flow with tiered shipping
+4. **Product Images** - Battery Saver photos in `/images/`
+5. **SEO** - Product schema markup for Google rich results
 
-1. Go to [vercel.com](https://vercel.com) and sign in
-2. Click "Add New..." → "Project"
-3. Choose "Upload" and drag the contents of this folder
-4. Click Deploy
+## Setup Instructions
 
-### Option 2: Deploy via GitHub
+### Step 1: Update Your GitHub Repository
 
-1. Create a new GitHub repository
-2. Push this folder's contents to the repo
-3. Connect the repo to Vercel
-4. Vercel will auto-deploy on every push
+1. Open your `OpenAir-Website` repo folder on your computer
+2. Copy these files/folders into it, **replacing** existing files:
+   - `public/index.html` (updated with Shop nav link)
+   - `public/shop/` folder (new)
+   - `public/images/` folder (new)
+   - `vercel.json` (updated with new redirects)
+
+3. In PowerShell/Terminal:
+   ```bash
+   cd path/to/OpenAir-Website
+   git add .
+   git commit -m "Add Battery Saver shop page with Stripe checkout"
+   git push
+   ```
+
+4. Vercel will auto-deploy within 1-2 minutes
+
+### Step 2: Set Up Stripe Payment Link
+
+The easiest approach (no backend needed):
+
+1. Go to **Stripe Dashboard** > **Payment Links**
+2. Make sure you're in the **OpenAir Solutions** account (not FoamMatch)
+3. Click **+ Create payment link**
+4. Add product:
+   - Name: "Battery Saver Timer Relay"
+   - Price: $114.99
+   - One-time payment
+5. Under "After payment", set confirmation page or redirect
+6. **Enable "Let customers adjust quantity"**
+7. Click **Create link**
+8. Copy the link (looks like `https://buy.stripe.com/xxxxx`)
+
+### Step 3: Update the Shop Page Code
+
+Edit `public/shop/index.html` and find this line near the bottom:
+
+```javascript
+const paymentLinkBase = 'https://buy.stripe.com/YOUR_PAYMENT_LINK';
+```
+
+Replace `YOUR_PAYMENT_LINK` with your actual Stripe Payment Link.
+
+### Step 4: Set Up Shipping in Stripe
+
+In your Stripe Payment Link settings:
+1. Click "Collect shipping address"
+2. Under "Shipping rates", add:
+   - "Standard (1-2 units)" - $15.00
+   - "Standard (3-5 units)" - $25.00  
+   - "Standard (6-10 units)" - $50.00
+   - "Free Shipping (11+ units)" - $0.00
+
+Or handle shipping calculation separately if you prefer.
+
+## Shipping Tiers (configured in the page)
+
+| Quantity | Shipping Cost |
+|----------|---------------|
+| 1-2      | $15.00        |
+| 3-5      | $25.00        |
+| 6-10     | $50.00        |
+| 11-99    | FREE          |
+| 100+     | Contact for quote (6-8 week lead time) |
 
 ## File Structure
 
 ```
-├── vercel.json          # Redirects (/contact → /#contact, etc.)
-└── public/
-    ├── index.html       # Main website (single page)
-    ├── logo.png         # OpenAir IoT logo
-    └── favicon.png      # Browser tab icon
+public/
+├── index.html          # Updated homepage with Shop link
+├── logo.png            # Your existing logo
+├── favicon.png         # Your existing favicon
+├── shop/
+│   └── index.html      # Battery Saver product page
+└── images/
+    ├── battery-saver-top.png    # Product image (top view)
+    └── battery-saver-front.jpg  # Product image (front/branded)
+
+vercel.json             # Redirects including /products → /shop
 ```
 
-## URL Shortcuts
+## Questions?
 
-These redirects are configured in `vercel.json`:
+- Stripe setup help: https://stripe.com/docs/payment-links
+- Vercel deployment: https://vercel.com/docs
 
-- `/contact` → scrolls to contact section
-- `/services` → scrolls to services section  
-- `/about` → scrolls to about section
-- `/about-us` → scrolls to about section
-
-## Custom Domain Setup
-
-After deployment:
-
-1. In Vercel dashboard, go to your project → Settings → Domains
-2. Add `openairiot.com`
-3. Vercel will show you DNS records to add
-4. In GoDaddy DNS settings, add the A record pointing to Vercel's IP
-5. Wait for DNS propagation (5-60 minutes)
-6. Vercel automatically provisions SSL certificate (free)
-
-## Future Improvements
-
-- [ ] Add proper favicon.ico (32x32 icon version of logo)
-- [ ] Add og-image.png for social sharing
-- [ ] Consider adding a robots.txt and sitemap.xml for SEO
+OpenAir Solutions, LLC
+support@OpenAirIoT.com

@@ -19,6 +19,16 @@
       "source": "/about-us",
       "destination": "/#about",
       "permanent": false
+    },
+    {
+      "source": "/battery-saver",
+      "destination": "/shop",
+      "permanent": false
+    },
+    {
+      "source": "/products",
+      "destination": "/shop",
+      "permanent": false
     }
   ]
 }
