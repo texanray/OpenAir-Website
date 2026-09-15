@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PX-A300 Industrial Edge Controller | OpenAir Solutions</title>
+    <meta name="description" content="The PX-A300 adds modern monitoring, alarming and control to any Modbus controller. Wired Modbus over RS-232, RS-485 and Ethernet, with cellular LTE and 900 MHz radio models. Sold by OpenAir Solutions.">
+    <meta name="keywords" content="PX-A300, Pytrowell, industrial edge controller, Modbus gateway, Modbus RTU, Modbus TCP, cellular telemetry, 900MHz radio, SCADA, legacy controller, Starlink">
+    <meta name="author" content="OpenAir Solutions, LLC">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://openairiot.com/shop/px-a300">
+    <meta property="og:title" content="PX-A300 Industrial Edge Controller | OpenAir Solutions">
+    <meta property="og:description" content="Modern monitoring, alarming and control for any Modbus controller, new or legacy.">
+    <meta property="og:image" content="https://openairiot.com/images/px-a300-front.png">
+
+    <!-- Product Schema for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProductGroup",
+        "name": "PX-A300 Industrial Edge Controller",
+        "description": "Industrial edge controller that interfaces with any Modbus controller to add monitoring, alarming and control. Wired Modbus over RS-232, RS-485 and Ethernet, with cellular LTE 4G and 900 MHz radio models.",
+        "brand": { "@type": "Brand", "name": "Pytrowell" },
+        "productGroupID": "PX-A300",
+        "image": "https://openairiot.com/images/px-a300-front.png",
+        "hasVariant": [
+            {
+                "@type": "Product", "name": "PX-A300", "sku": "PX-A300",
+                "offers": { "@type": "Offer", "url": "https://openairiot.com/shop/px-a300", "priceCurrency": "USD", "price": "415.00", "availability": "https://schema.org/InStock", "seller": { "@type": "Organization", "name": "OpenAir Solutions, LLC" } }
+            },
+            {
+                "@type": "Product", "name": "PX-A300-CELL", "sku": "PX-A300-CELL",
+                "offers": { "@type": "Offer", "url": "https://openairiot.com/shop/px-a300", "priceCurrency": "USD", "price": "495.00", "availability": "https://schema.org/InStock", "seller": { "@type": "Organization", "name": "OpenAir Solutions, LLC" } }
+            },
+            {
+                "@type": "Product", "name": "PX-A300-RADIO", "sku": "PX-A300-RADIO",
+                "offers": { "@type": "Offer", "url": "https://openairiot.com/shop/px-a300", "priceCurrency": "USD", "price": "565.00", "availability": "https://schema.org/InStock", "seller": { "@type": "Organization", "name": "OpenAir Solutions, LLC" } }
+            }
+        ]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+        :root {
+            --openair-green: #2D5A27;
+            --openair-green-light: #4A7C43;
+            --openair-dark: #0a0a0a;
+            --openair-gray: #1a1a1a;
+        }
+
+        * { font-family: 'Space Grotesk', system-ui, sans-serif; }
+        html { scroll-behavior: smooth; }
+
+        .bg-openair-dark { background-color: var(--openair-dark); }
+        .bg-openair-gray { background-color: var(--openair-gray); }
+        .bg-openair-green { background-color: var(--openair-green); }
+        .text-openair-green { color: var(--openair-green); }
+        .text-openair-green-light { color: var(--openair-green-light); }
+        .border-openair-green { border-color: var(--openair-green); }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 30px rgba(45, 90, 39, 0.3);
+        }
+
+        .spec-table td { padding: 0.5rem 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); vertical-align: top; }
+        .spec-table td:first-child { color: #9ca3af; width: 45%; }
+    </style>
+</head>
+<body class="bg-openair-dark text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-openair-dark/95 backdrop-blur-sm border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="logo-container">
+                    <img src="/logo.png" alt="OpenAir IoT" class="h-14 md:h-16 lg:h-20">
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="/#services" class="text-gray-300 hover:text-white transition-colors">Services</a>
+                    <a href="/#approach" class="text-gray-300 hover:text-white transition-colors">Our Approach</a>
+                    <a href="/#about" class="text-gray-300 hover:text-white transition-colors">About</a>
+                    <a href="/shop" class="text-openair-green-light font-medium">Shop</a>
+                    <a href="/#contact" class="bg-openair-green hover:bg-openair-green-light px-4 py-2 transition-colors">Contact Us</a>
+                </div>
+                <button class="md:hidden text-white" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-white/10 pt-4">
+                <div class="flex flex-col gap-4">
+                    <a href="/#services" class="text-gray-300 hover:text-white">Services</a>
+                    <a href="/#approach" class="text-gray-300 hover:text-white">Our Approach</a>
+                    <a href="/#about" class="text-gray-300 hover:text-white">About</a>
+                    <a href="/shop" class="text-openair-green-light font-medium">Shop</a>
+                    <a href="/#contact" class="bg-openair-green hover:bg-openair-green-light px-4 py-2 text-center">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Section -->
+    <section class="pt-32 pb-16 px-6">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Breadcrumb -->
+            <nav class="mb-8 text-sm">
+                <a href="/" class="text-gray-500 hover:text-white">Home</a>
+                <span class="text-gray-600 mx-2">/</span>
+                <a href="/shop" class="text-gray-500 hover:text-white">Shop</a>
+                <span class="text-gray-600 mx-2">/</span>
+                <span class="text-openair-green-light">PX-A300</span>
+            </nav>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+
+                <!-- Product Images -->
+                <div>
+                    <div class="bg-white border border-white/10 p-8 mb-4">
+                        <img src="/images/px-a300-front.png" alt="PX-A300 Industrial Edge Controller - Front View" class="w-full max-w-md mx-auto" id="mainImage">
+                    </div>
+                    <div class="grid grid-cols-3 gap-4">
+                        <button onclick="document.getElementById('mainImage').src='/images/px-a300-front.png'" class="bg-white border border-white/10 p-3 hover:border-openair-green transition-colors">
+                            <img src="/images/px-a300-front.png" alt="Front View" class="w-full">
+                        </button>
+                        <button onclick="document.getElementById('mainImage').src='/images/px-a300-top.png'" class="bg-white border border-white/10 p-3 hover:border-openair-green transition-colors">
+                            <img src="/images/px-a300-top.png" alt="Top View" class="w-full h-full object-contain">
+                        </button>
+                        <button onclick="document.getElementById('mainImage').src='/images/px-a300-back.png'" class="bg-white border border-white/10 p-3 hover:border-openair-green transition-colors">
+                            <img src="/images/px-a300-back.png" alt="Back View" class="w-full">
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div>
+                    <p class="text-openair-green-light font-mono text-sm mb-2">PN: PX-A300 · PX-A300-CELL · PX-A300-RADIO</p>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4">PX-A300 Industrial Edge Controller</h1>
+
+                    <p class="text-gray-400 mb-6 text-lg italic">
+                        "Modern monitoring for the controllers you already own."
+                    </p>
+
+                    <div class="border-t border-b border-white/10 py-6 mb-6">
+                        <p class="text-gray-400 mb-4">
+                            The PX-A300 connects to any Modbus controller and adds a layer of
+                            <strong class="text-white">monitoring, alarming and control</strong> on top of it.
+                            Keep your existing equipment. Get modern features anyway.
+                        </p>
+                        <p class="text-gray-400">
+                            Its built-in edge processor (PytroAI) runs custom logic right at the site, and setup is done through a
+                            <strong class="text-white">simple USB web interface</strong>. There's no proprietary software to install.
+                        </p>
+                    </div>
+
+                    <!-- Models -->
+                    <h3 class="font-semibold mb-4">Choose Your Model</h3>
+                    <div class="space-y-4 mb-8">
+                        <div class="bg-openair-gray border border-white/10 p-5">
+                            <div class="flex justify-between items-start gap-4 mb-2">
+                                <div>
+                                    <p class="font-bold text-lg">PX-A300</p>
+                                    <p class="text-openair-green-light font-mono text-xs">Base model · Wired + Ethernet</p>
+                                </div>
+                                <p class="text-xl font-bold text-openair-green-light whitespace-nowrap">$415.00</p>
+                            </div>
+                            <p class="text-gray-400 text-sm">
+                                RS-232, RS-485 and Ethernet, with microSD logging and a real-time clock. The Ethernet port also
+                                connects the PX-A300 to the internet through any available on-site network (LAN) or a
+                                satellite service such as Starlink.
+                            </p>
+                        </div>
+                        <div class="bg-openair-gray border border-white/10 p-5">
+                            <div class="flex justify-between items-start gap-4 mb-2">
+                                <div>
+                                    <p class="font-bold text-lg">PX-A300-CELL</p>
+                                    <p class="text-openair-green-light font-mono text-xs">Adds Cellular LTE 4G</p>
+                                </div>
+                                <p class="text-xl font-bold text-openair-green-light whitespace-nowrap">$495.00</p>
+                            </div>
+                            <p class="text-gray-400 text-sm">All features as above plus Cellular LTE 4G module for remote telemetry.</p>
+                        </div>
+                        <div class="bg-openair-gray border border-white/10 p-5">
+                            <div class="flex justify-between items-start gap-4 mb-2">
+                                <div>
+                                    <p class="font-bold text-lg">PX-A300-RADIO</p>
+                                    <p class="text-openair-green-light font-mono text-xs">Adds 900 MHz Radio</p>
+                                </div>
+                                <p class="text-xl font-bold text-openair-green-light whitespace-nowrap">$565.00</p>
+                            </div>
+                            <p class="text-gray-400 text-sm">All features as above plus Radio 900MHz module for local telemetry.</p>
+                        </div>
+                    </div>
+
+                    <!-- How to Buy -->
+                    <div class="bg-openair-green/10 border border-openair-green p-6">
+                        <h3 class="font-semibold text-lg mb-2">How to Purchase</h3>
+                        <p class="text-gray-300 mb-4">
+                            To purchase, please contact your local distributor, <strong class="text-white">OpenAir Solutions</strong>,
+                            at <a href="mailto:sales@openairiot.com" class="text-white hover:underline">sales@openairiot.com</a>
+                            or <a href="tel:+14802316867" class="text-white hover:underline whitespace-nowrap">(480) 231-6867</a>.
+                        </p>
+                        <div class="grid sm:grid-cols-2 gap-3 mb-4">
+                            <a href="mailto:sales@openairiot.com?subject=PX-A300%20Order%20Inquiry&body=Hi%2C%0A%0AI'm%20interested%20in%20the%20PX-A300.%0A%0AModel%20(PX-A300%20%2F%20-CELL%20%2F%20-RADIO)%3A%20%0AQuantity%3A%20%0AShip-to%20location%3A%20%0A%0AThanks!"
+                               class="bg-openair-green hover:bg-openair-green-light py-3 px-4 font-semibold text-center transition-colors hover-glow">
+                                Email Us
+                            </a>
+                            <a href="tel:+14802316867" class="border border-white/30 hover:border-white py-3 px-4 font-semibold text-center transition-colors">
+                                Call (480) 231-6867
+                            </a>
+                        </div>
+                        <a href="/datasheets/PX-A300-Datasheet.pdf" target="_blank" rel="noopener" class="text-openair-green-light hover:underline text-sm">
+                            Download the PX-A300 datasheet (PDF) →
+                        </a>
+                    </div>
+
+                    <p class="text-sm text-gray-500 mt-4 text-center italic">
+                        1-year standard manufacturer warranty. Volume pricing available. Just ask.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="py-16 px-6 bg-openair-gray">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl font-bold mb-8 text-center">Key Features</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-openair-dark border border-white/10 p-5">
+                    <p class="font-semibold mb-1"><span class="text-openair-green-light">✓</span> Works With Legacy Controllers</p>
+                    <p class="text-gray-400 text-sm">Talks Modbus to what you already have. No rip-and-replace.</p>
+                </div>
+                <div class="bg-openair-dark border border-white/10 p-5">
+                    <p class="font-semibold mb-1"><span class="text-openair-green-light">✓</span> Alarming &amp; Notifications</p>
+                    <p class="text-gray-400 text-sm">Know the moment something changes in the field.</p>
+                </div>
+                <div class="bg-openair-dark border border-white/10 p-5">
+                    <p class="font-semibold mb-1"><span class="text-openair-green-light">✓</span> Edge Logic (PytroAI)</p>
+                    <p class="text-gray-400 text-sm">Run custom algorithms on-site, written in MicroPython.</p>
+                </div>
+                <div class="bg-openair-dark border border-white/10 p-5">
+                    <p class="font-semibold mb-1"><span class="text-openair-green-light">✓</span> Wired, Cellular or Radio</p>
+                    <p class="text-gray-400 text-sm">RS-232, RS-485 and Ethernet on every unit. LTE 4G or 900 MHz by model.</p>
+                </div>
+                <div class="bg-openair-dark border border-white/10 p-5">
+                    <p class="font-semibold mb-1"><span class="text-openair-green-light">✓</span> Local Logging</p>
+                    <p class="text-gray-400 text-sm">microSD card logging with a real-time clock for accurate timestamps.</p>
+                </div>
+                <div class="bg-openair-dark border border-white/10 p-5">
+                    <p class="font-semibold mb-1"><span class="text-openair-green-light">✓</span> Built for the Field</p>
+                    <p class="text-gray-400 text-sm">IP64 rated, 12–24 VDC supply, FCC and IC certified.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specifications -->
+    <section class="py-16 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl font-bold mb-8 text-center">Specifications</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-semibold text-openair-green-light mb-2">Hardware</h3>
+                    <table class="spec-table w-full text-sm mb-6">
+                        <tr><td>Supply voltage</td><td>12–24 VDC</td></tr>
+                        <tr><td>Dimensions (L×W×H)</td><td>3.937" × 3.244" × 1.114"</td></tr>
+                        <tr><td>IP rating</td><td>IP64</td></tr>
+                        <tr><td>Logging</td><td>microSD card</td></tr>
+                        <tr><td>USB</td><td>Debugger, DFU update</td></tr>
+                    </table>
+                    <h3 class="font-semibold text-openair-green-light mb-2">Wired Interfaces</h3>
+                    <table class="spec-table w-full text-sm">
+                        <tr><td>RS-232</td><td>1× Modbus RTU Slave</td></tr>
+                        <tr><td>RS-485</td><td>1× Modbus RTU Slave<br>1× Modbus RTU Master</td></tr>
+                        <tr><td>Ethernet</td><td>1× Modbus TCP Slave</td></tr>
+                    </table>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-openair-green-light mb-2">Software</h3>
+                    <table class="spec-table w-full text-sm mb-6">
+                        <tr><td>Device setup</td><td>PytroAI USB Web Interface</td></tr>
+                        <tr><td>Edge engine</td><td>MicroPython</td></tr>
+                        <tr><td>Troubleshooting</td><td>PytroAI USB debugger</td></tr>
+                        <tr><td>Programming</td><td>PytroAI USB DFU</td></tr>
+                        <tr><td>Bootloader</td><td>DFU, Recovery mode</td></tr>
+                    </table>
+                    <h3 class="font-semibold text-openair-green-light mb-2">Wireless Interfaces (by model)</h3>
+                    <table class="spec-table w-full text-sm">
+                        <tr><td>LTE 4G (-CELL)</td><td>Modbus Cellular via API</td></tr>
+                        <tr><td>900 MHz ISM (-RADIO)</td><td>Modbus Radio Master / Slave</td></tr>
+                        <tr><td>Certifications</td><td>FCC, IC</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cross-sell -->
+    <section class="py-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="border border-openair-green/30 bg-openair-green/5 p-6 text-center">
+                <p class="text-openair-green-light mb-2">Need the whole system, not just the hardware?</p>
+                <p class="text-gray-300">
+                    Custom SCADA dashboards, alarming systems &amp; IoT integration — that's exactly what we do.
+                    <a href="/#services" class="text-openair-green-light font-semibold hover:underline ml-1">Learn more →</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-white/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <img src="/logo.png" alt="OpenAir IoT" class="h-10">
+                <p class="text-gray-500 text-sm">© 2026 OpenAir Solutions, LLC. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="/shop" class="text-gray-500 hover:text-white text-sm">Shop</a>
+                    <a href="mailto:support@OpenAirIoT.com" class="text-gray-500 hover:text-white text-sm">Contact</a>
+                </div>
+            </div>
+            <p class="text-xs text-gray-600 text-center mt-4">
+                PX-A300 and PytroAI are products of Pytrowell. OpenAir Solutions is an authorized distributor.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -29,6 +29,11 @@
       "source": "/products",
       "destination": "/shop",
       "permanent": false
+    },
+    {
+      "source": "/px-a300",
+      "destination": "/shop/px-a300",
+      "permanent": false
     }
   ]
 }
