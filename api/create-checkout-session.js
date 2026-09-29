@@ -10,10 +10,9 @@
 
 // Keep in step with CONFIG.shipping in public/shop/index.html
 const SHIPPING = [
-  { min: 1, max: 2, cents: 1500, label: 'UPS Ground (1-2 units)' },
-  { min: 3, max: 5, cents: 2500, label: 'UPS Ground (3-5 units)' },
-  { min: 6, max: 10, cents: 5000, label: 'UPS Ground (6-10 units)' },
-  { min: 11, max: 99, cents: 0, label: 'Free UPS Ground (11+ units)' },
+  { min: 1, max: 5, cents: 1500, label: 'UPS Ground (1-5 units)' },
+  { min: 6, max: 15, cents: 3500, label: 'UPS Ground (6-15 units)' },
+  { min: 16, max: 99, cents: 5000, label: 'UPS Ground (16+ units)' },
 ];
 
 module.exports = async (req, res) => {
