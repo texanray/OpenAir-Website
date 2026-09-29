@@ -239,13 +239,19 @@
                             <div id="shippingOptions" class="space-y-2">
                                 <!-- Populated by JS -->
                             </div>
+                            <p class="text-sm text-gray-500 mt-2">
+                                Most orders ship within 2 business days by UPS Ground (about 3 days in transit).
+                                Need it sooner? Expedited shipping is available. Call or text
+                                <a href="tel:+14802316867" class="text-openair-green-light hover:underline">(480) 231-6867</a> or email
+                                <a href="mailto:sales@openairiot.com" class="text-openair-green-light hover:underline">sales@openairiot.com</a>.
+                            </p>
                         </div>
                         
                         <!-- Totals -->
                         <div class="border-t border-white/10 pt-4 mb-6">
                             <div class="flex justify-between text-gray-400 mb-2">
                                 <span>Subtotal (<span id="subtotalQty">1</span> unit<span id="subtotalPlural"></span>)</span>
-                                <span>$<span id="subtotal">114.99</span></span>
+                                <span>$<span id="subtotal">118.99</span></span>
                             </div>
                             <div class="flex justify-between text-gray-400 mb-2">
                                 <span>Shipping</span>
@@ -253,7 +259,7 @@
                             </div>
                             <div class="flex justify-between text-xl font-bold mt-4">
                                 <span>Total</span>
-                                <span>$<span id="total">129.99</span></span>
+                                <span>$<span id="total">133.99</span></span>
                             </div>
                         </div>
                         
@@ -266,7 +272,7 @@
                         <!-- Bulk Order Notice -->
                         <div id="bulkOrderNotice" class="hidden mt-4 p-4 bg-yellow-900/20 border border-yellow-600/30 text-sm">
                             <p class="text-yellow-200"><strong>Bulk Order (100+ units)</strong></p>
-                            <p class="text-yellow-200/80 mt-1">Orders of 100+ units require 6-8 weeks lead time. Please <a href="/#contact" class="underline">contact us</a> for bulk pricing and shipping arrangements.</p>
+                            <p class="text-yellow-200/80 mt-1">Please <a href="/#contact" class="underline">contact us</a> for bulk pricing, lead time and shipping arrangements.</p>
                         </div>
                         
                         <p class="text-xs text-gray-500 mt-4 text-center">
@@ -347,25 +353,16 @@
     </footer>
 
     <script>
-        // ============================================
-        // CONFIGURATION - UPDATE THESE WITH YOUR STRIPE INFO
-        // ============================================
         const CONFIG = {
-            // Replace with your actual Stripe publishable key (starts with pk_live_ or pk_test_)
-            stripePublishableKey: 'pk_live_YOUR_KEY_HERE',
-            
-            // Replace with your actual Stripe Price IDs for each product/shipping combo
-            // You'll create these in Stripe Dashboard > Products
-            priceIds: {
-                product: 'price_XXXXX',  // Battery Saver $114.99
-                shipping15: 'price_XXXXX',  // $15 shipping
-                shipping25: 'price_XXXXX',  // $25 shipping
-                shipping50: 'price_XXXXX',  // $50 shipping
-            },
-            
             unitPrice: 118.99,
-            
-            // Shipping tiers
+
+            // Used only if /api/create-checkout-session is unavailable
+            paymentLink: 'https://buy.stripe.com/00weVf2sz9KOd8L3uabAs02',
+
+            // Orders at or above this size get the lead-time note
+            leadTimeQty: 25,
+
+            // Shipping tiers (keep in step with SHIPPING in api/create-checkout-session.js)
             shipping: [
                 { min: 1, max: 2, price: 15, label: 'Standard Shipping (1-2 units)' },
                 { min: 3, max: 5, price: 25, label: 'Standard Shipping (3-5 units)' },
@@ -397,6 +394,15 @@
             document.getElementById('subtotalQty').textContent = qty;
             document.getElementById('subtotalPlural').textContent = qty > 1 ? 's' : '';
             
+            // Lead-time note for larger orders
+            const bulkNote = document.getElementById('bulkNote');
+            if (qty >= CONFIG.leadTimeQty && qty < 100) {
+                bulkNote.textContent = `Orders of ${CONFIG.leadTimeQty} or more units may need 7–10 business days to prepare before shipping.`;
+                bulkNote.classList.remove('hidden');
+            } else {
+                bulkNote.classList.add('hidden');
+            }
+
             // Bulk order notice
             const bulkNotice = document.getElementById('bulkOrderNotice');
             const checkoutBtn = document.getElementById('checkoutBtn');
@@ -470,32 +476,26 @@
             checkoutBtn.disabled = true;
             checkoutBtn.textContent = 'Redirecting to Checkout...';
             
-            // Option 1: Simple Payment Link (easiest)
-            // Replace this URL with your actual Stripe Payment Link
-            // You can create one in Stripe Dashboard > Payment Links
-            const paymentLinkBase = 'https://buy.stripe.com/00weVf2sz9KOd8L3uabAs02';
-            
-            // Add quantity as a URL parameter (Stripe Payment Links support this)
-            window.location.href = `${paymentLinkBase}?quantity=${qty}`;
-            
-            // Option 2: Full Stripe Checkout (more control, needs backend)
-            // Uncomment below and set up a serverless function if you want full control
-            /*
+            // Stripe Checkout via /api/create-checkout-session: charges the chosen
+            // quantity plus the matching shipping tier.
             try {
                 const response = await fetch('/api/create-checkout-session', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ quantity: qty })
                 });
-                const { url } = await response.json();
-                window.location.href = url;
+                const data = await response.json();
+                if (response.ok && data.url) {
+                    window.location.href = data.url;
+                    return;
+                }
+                console.error('Checkout error:', data.error);
             } catch (error) {
                 console.error('Checkout error:', error);
-                checkoutBtn.disabled = false;
-                checkoutBtn.textContent = 'Proceed to Checkout';
-                alert('There was an error. Please try again or contact us.');
             }
-            */
+
+            // Fallback: the Stripe payment link (buyer sets quantity there; no shipping charge)
+            window.location.href = CONFIG.paymentLink;
         }
         
         // Initialize

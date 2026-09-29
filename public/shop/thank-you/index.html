@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Your Order | OpenAir Solutions</title>
+    <meta name="robots" content="noindex">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+        :root {
+            --openair-green: #2D5A27;
+            --openair-green-light: #4A7C43;
+            --openair-dark: #0a0a0a;
+            --openair-gray: #1a1a1a;
+        }
+
+        * { font-family: 'Space Grotesk', system-ui, sans-serif; }
+
+        .bg-openair-dark { background-color: var(--openair-dark); }
+        .bg-openair-gray { background-color: var(--openair-gray); }
+        .bg-openair-green { background-color: var(--openair-green); }
+        .text-openair-green-light { color: var(--openair-green-light); }
+    </style>
+</head>
+<body class="bg-openair-dark text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-openair-dark/95 backdrop-blur-sm border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <a href="/">
+                <img src="/logo.png" alt="OpenAir IoT" class="h-14 md:h-16 lg:h-20">
+            </a>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-20 px-6">
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-openair-gray border border-white/10 p-8 md:p-10">
+                <p class="text-openair-green-light font-mono text-sm mb-2">ORDER RECEIVED</p>
+                <h1 class="text-3xl md:text-4xl font-bold mb-6">Thank you for your order!</h1>
+
+                <p class="text-gray-300 text-lg mb-4">
+                    Most orders ship within 2 business days by UPS Ground, which usually takes about 3 days to arrive.
+                </p>
+                <p class="text-gray-300 text-lg mb-4">
+                    Orders of 25 or more units may need 7–10 business days to prepare before shipping.
+                </p>
+                <p class="text-gray-300 text-lg mb-8">
+                    Need it sooner? Expedited shipping is available. Call, text or email for pricing and timing:
+                    <a href="tel:+14802316867" class="text-openair-green-light hover:underline whitespace-nowrap">(480) 231-6867</a> ·
+                    <a href="mailto:sales@openairiot.com" class="text-openair-green-light hover:underline">sales@openairiot.com</a>
+                </p>
+
+                <p class="text-gray-500 text-sm mb-8">
+                    Your receipt and invoice are on their way to your email.
+                </p>
+
+                <a href="/" class="inline-block bg-openair-green hover:bg-openair-green-light px-6 py-3 font-semibold transition-colors">
+                    Back to OpenAir
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 px-6 border-t border-white/10">
+        <p class="text-gray-500 text-sm text-center">© 2026 OpenAir Solutions, LLC. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
